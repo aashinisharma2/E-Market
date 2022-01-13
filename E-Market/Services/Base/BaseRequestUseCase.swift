@@ -1,27 +1,28 @@
 //
 //  BaseRequestUseCase.swift
-//  Ecommerce
+//  E-Market
 //
-//  Created by Aashini Sharma on 10/01/22.
+//  Created by Aashini on 10/01/22.
 //
 
 import UIKit
 
-
 class BaseRequestUseCase <T> {
     
-    func initialize()  {
-        fatalError("This is an Abstract Base class, Method should be override")
+    func initialize() {
         
+        fatalError("This is an Abstract Base class, Method should be override")
     }
-    func getDataFromServerUsingGet(url : URL, completionHandler:@escaping(T? , Error?) -> Void) -> URLSessionTask{
+    
+    func getDataFromServerUsingGet(url : URL, completionHandler:@escaping(T? , Error?) -> Void) -> URLSessionTask {
         
         return NetworkManager.shared.getData(url:url) { (data, error) in
+            
             if let error = error  {
                 DispatchQueue.main.async {
                     completionHandler(nil , error)
                 }
-            }else{
+            } else {
                 guard let unwrappedData = data else {
                     DispatchQueue.main.async {
                         completionHandler(nil,nil);
@@ -42,10 +43,10 @@ class BaseRequestUseCase <T> {
             }
             
         }
-        
     }
     
     func decode(data : Data)throws -> T {
+        
         fatalError("This is an Abstract Base class, Method should be override")
     }
 }

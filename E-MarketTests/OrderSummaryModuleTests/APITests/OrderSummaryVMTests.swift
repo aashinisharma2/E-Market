@@ -1,14 +1,13 @@
 //
-//  E_MarketTests.swift
+//  OrderSummaryVMTests.swift
 //  E-MarketTests
 //
-//  Created by Aashini Sharma on 09/01/22.
+//  Created by Aashini on 11/01/22.
 //
 
 import XCTest
-@testable import E_Market
 
-class E_MarketTests: XCTestCase {
+class OrderSummaryVMTests: XCTestCase {
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.

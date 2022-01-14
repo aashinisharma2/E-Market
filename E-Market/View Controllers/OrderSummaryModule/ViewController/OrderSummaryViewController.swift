@@ -118,12 +118,14 @@ private extension OrderSummaryViewController {
                 
                 self.view.activityStopAnimating()
                 if message != nil {
-                    guard let notifyClosure = self.notifyStoryDetailScreen else { return }
-                    notifyClosure()
-                    self.navigationController?.popViewController(animated: true)
-                    
+                    UIAlertController.showAlert(withMessage: StringConstant.orderPlaced.rawValue, onViewController: self) {
+                        guard let notifyClosure = self.notifyStoryDetailScreen else { return }
+                        notifyClosure()
+                        self.navigationController?.popViewController(animated: true)
+
+                    }
                 } else {
-                    UIAlertController.showError(withMessage: message ?? "", onViewController: self)
+                    UIAlertController.showAlert(withMessage: message ?? "", onViewController: self)
                 }
             }
         })

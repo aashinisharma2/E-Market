@@ -22,6 +22,8 @@ enum StringConstant: String {
     case submit             = "Submit"
     case subTotal           = "Subtotal: "
     case proceedToBuy       = "Proceed to Buy"
+    case orderPlaced        = "Order Placed Successfully"
+
 }
 
 

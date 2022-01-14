@@ -55,7 +55,7 @@ class StoreDetailViewController: UIViewController{
                 self.populateStoreData()
                 
             } else {
-                UIAlertController.showError(withMessage: message , onViewController: self)
+                UIAlertController.showAlert(withMessage: message , onViewController: self)
             }
             self.refreshControl.endRefreshing()
         })

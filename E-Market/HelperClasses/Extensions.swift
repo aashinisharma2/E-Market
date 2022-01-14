@@ -105,15 +105,21 @@ extension UIAlertController {
     
     /// Present Error on a controller
     /// - Parameters:
-    ///   - message: error to be shown
+    ///   - message: alert message to be shown
     ///   - vc: view controller on which the error needs to be show
-    class func showError(withMessage message: String,
-                         onViewController vc: UIViewController) {
+    class func showAlert(withMessage message: String,
+                         onViewController vc: UIViewController, _ completion : (() -> Void)? = nil) {
         
-        let alertController = self.init(title: "Error", message: message, preferredStyle: .alert)
-        let alertAction = UIAlertAction.init(title: "Ok", style: .cancel, handler: nil)
-        alertController.addAction(alertAction)
-        vc.present(alertController, animated: true, completion: nil)
+        DispatchQueue.main.async {
+            let alertViewController = self.init(title: "", message: message, preferredStyle: UIAlertController.Style.alert)
+            let okAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.default) { (action : UIAlertAction) -> Void in
+                alertViewController.dismiss(animated: true, completion: nil)
+                completion?()
+            }
+            alertViewController.addAction(okAction)
+            vc.present(alertViewController, animated: true, completion: nil)
+        }
+
     }
 }
 

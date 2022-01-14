@@ -1,4 +1,4 @@
-## E-Market
+# E-Market
 ## This is a simple e-market application which allows user to view the store details and products, add products to the basket, and place an order
 
 ## The application consists of three screens:
